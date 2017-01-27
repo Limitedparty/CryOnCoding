@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.25928.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryOnCoding", "CryOnCoding\CryOnCoding.csproj", "{B9BD5510-C013-4624-A415-3269D9E69BF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COClib", "COClib\COClib.csproj", "{632C6C4D-0505-44E2-B68E-46448FA7D3CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COClib", "COClib\COClib.csproj", "{C23DBBE5-BC52-4A87-A493-8CD8351B9A68}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{B9BD5510-C013-4624-A415-3269D9E69BF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9BD5510-C013-4624-A415-3269D9E69BF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9BD5510-C013-4624-A415-3269D9E69BF8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{632C6C4D-0505-44E2-B68E-46448FA7D3CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{632C6C4D-0505-44E2-B68E-46448FA7D3CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{632C6C4D-0505-44E2-B68E-46448FA7D3CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{632C6C4D-0505-44E2-B68E-46448FA7D3CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C23DBBE5-BC52-4A87-A493-8CD8351B9A68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C23DBBE5-BC52-4A87-A493-8CD8351B9A68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C23DBBE5-BC52-4A87-A493-8CD8351B9A68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C23DBBE5-BC52-4A87-A493-8CD8351B9A68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
