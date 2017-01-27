@@ -16,7 +16,7 @@ namespace CryOnCoding
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main_Window());
+            Application.Run(new TestForm());
         }
     }
 }
