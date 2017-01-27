@@ -10,89 +10,100 @@ namespace COClib
 {
     class CryptMaster
     {
-        public static byte[] EncryptStringToBytesAes(string plainText, byte[] Key, byte[] IV)
+
+        public static byte[] Encrypt(byte[] clearData, byte[] Key, byte[] IV)
         {
-            // Проверка аргументов
-            if (plainText == null || plainText.Length <= 0)
-                throw new ArgumentNullException("plainText");
-            if (Key == null || Key.Length <= 0)
-                throw new ArgumentNullException("Key");
-            if (IV == null || IV.Length <= 0)
-                throw new ArgumentNullException("IV");
-            byte[] encrypted;
+            MemoryStream ms = new MemoryStream();
 
-            // Создаем объект класса AES
-            // с определенным ключом and IV.
-            using (Aes aesAlg = Aes.Create())
-            {
-                aesAlg.Key = Key;
-                aesAlg.IV = IV;
+            Rijndael alg = Rijndael.Create();
 
-                // Создаем объект, который определяет основные операции преобразований.
-                ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
+            alg.Key = Key;
+            alg.IV = IV;
 
-                // Создаем поток для шифрования.
-                using (var msEncrypt = new MemoryStream())
-                {
-                    using (var csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
-                    {
-                        using (var swEncrypt = new StreamWriter(csEncrypt))
-                        {
-                            //Записываем в поток все данные.
-                            swEncrypt.Write(plainText);
-                        }
-                        encrypted = msEncrypt.ToArray();
-                    }
-                }
-            }
+            CryptoStream cs = new CryptoStream(ms,
+               alg.CreateEncryptor(), CryptoStreamMode.Write);
 
+            cs.Write(clearData, 0, clearData.Length);
 
-            //Возвращаем зашифрованные байты из потока памяти.
-            return encrypted;
+            cs.Close();
+
+            byte[] encryptedData = ms.ToArray();
+
+            return encryptedData;
+        }
+
+        public static string Encrypt(string clearText, string Password)
+        {
+            byte[] clearBytes =
+              System.Text.Encoding.Unicode.GetBytes(clearText);
+
+            PasswordDeriveBytes pdb = new PasswordDeriveBytes(Password,
+                new byte[] {0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d,
+            0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76});
+
+            byte[] encryptedData = Encrypt(clearBytes,
+                     pdb.GetBytes(32), pdb.GetBytes(16));
+
+            return Convert.ToBase64String(encryptedData);
 
         }
 
-        public static string DecryptStringFromBytesAes(byte[] cipherText, byte[] Key, byte[] IV)
+        public static byte[] Encrypt(byte[] clearData, string Password)
         {
-            // Проверяем аргументы
-            if (cipherText == null || cipherText.Length <= 0)
-                throw new ArgumentNullException("cipherText");
-            if (Key == null || Key.Length <= 0)
-                throw new ArgumentNullException("Key");
-            if (IV == null || IV.Length <= 0)
-                throw new ArgumentNullException("IV");
+            PasswordDeriveBytes pdb = new PasswordDeriveBytes(Password,
+                new byte[] {0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d,
+            0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76});
 
-            // Строка, для хранения расшифрованного текста
-            string plaintext;
-
-            // Создаем объект класса AES,
-            // Ключ и IV
-            using (Aes aesAlg = Aes.Create())
-            {
-                aesAlg.Key = Key;
-                aesAlg.IV = IV;
-
-                // Создаем объект, который определяет основные операции преобразований.
-                ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
-
-                // Создаем поток для расшифрования.
-                using (var msDecrypt = new MemoryStream(cipherText))
-                {
-                    using (var csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
-                    {
-                        using (var srDecrypt = new StreamReader(csDecrypt))
-                        {
-
-                            // Читаем расшифрованное сообщение и записываем в строку
-                            plaintext = srDecrypt.ReadToEnd();
-                        }
-                    }
-                }
-
-            }
-
-            return plaintext;
+            return Encrypt(clearData, pdb.GetBytes(32), pdb.GetBytes(16));
 
         }
+
+        public static byte[] Decrypt(byte[] cipherData,
+                                byte[] Key, byte[] IV)
+        {
+            MemoryStream ms = new MemoryStream();
+
+            Rijndael alg = Rijndael.Create();
+
+            alg.Key = Key;
+            alg.IV = IV;
+
+            CryptoStream cs = new CryptoStream(ms,
+                alg.CreateDecryptor(), CryptoStreamMode.Write);
+
+            cs.Write(cipherData, 0, cipherData.Length);
+
+            cs.Close();
+
+            byte[] decryptedData = ms.ToArray();
+
+            return decryptedData;
+        }
+
+
+        public static string Decrypt(string cipherText, string Password)
+        {
+            byte[] cipherBytes = Convert.FromBase64String(cipherText);
+
+            PasswordDeriveBytes pdb = new PasswordDeriveBytes(Password,
+                new byte[] {0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65,
+            0x64, 0x76, 0x65, 0x64, 0x65, 0x76});
+
+
+            byte[] decryptedData = Decrypt(cipherBytes,
+                pdb.GetBytes(32), pdb.GetBytes(16));
+
+            return System.Text.Encoding.Unicode.GetString(decryptedData);
+        }
+
+        public static byte[] Decrypt(byte[] cipherData, string Password)
+        {
+            PasswordDeriveBytes pdb = new PasswordDeriveBytes(Password,
+                new byte[] {0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d,
+            0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76});
+
+            return Decrypt(cipherData, pdb.GetBytes(32), pdb.GetBytes(16));
+        }
+
     }
 }

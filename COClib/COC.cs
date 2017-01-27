@@ -10,26 +10,42 @@ namespace COClib
 {
     public class COC
     {
-        public static Aes masterKey;
+        public static byte[] masterKey;
 
 
         // Генератор ключа
         public static void GenKey()
         {
-            masterKey = Aes.Create();
+            // TODO: Генерация ключа
+
+        }
+
+        // Установка ключа
+        public static bool SetKey(string key)
+        {
+            masterKey = Encoding.ASCII.GetBytes(key);
+            return true;
         }
 
         // Шифровка
-        public static String Encrypt()
+        public static string Encrypt(string message)
         {
-            byte[] encrypted = CryptMaster.EncryptStringToBytesAes(original, myAes.Key, myAes.IV);
-            return "";
+            string encrypted = CryptMaster.Encrypt(message, Convert.ToBase64String(masterKey));
+            return encrypted;
         }
 
         // Расшифровка
-        public static String Decrypt()
+        public static string Decrypt(string message)
         {
-            return "";
+            string decrypted;
+            try
+            {
+                decrypted = CryptMaster.Decrypt(message, Convert.ToBase64String(masterKey));
+            } catch (Exception e)
+            {
+                return "Encryption error";
+            }
+            return decrypted;
         }
     }
 }
