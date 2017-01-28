@@ -43,10 +43,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBoxMasterKey = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button8 = new System.Windows.Forms.Button();
@@ -59,7 +60,6 @@
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.button3 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button5 = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -201,6 +201,7 @@
             this.buttonSend.TabIndex = 3;
             this.buttonSend.Text = "Отправить";
             this.buttonSend.UseVisualStyleBackColor = false;
+            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
             // button1
             // 
@@ -231,7 +232,7 @@
             this.tabPage2.Controls.Add(this.checkBox5);
             this.tabPage2.Controls.Add(this.checkBox4);
             this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.textBox4);
+            this.tabPage2.Controls.Add(this.textBoxMasterKey);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.textBox3);
             this.tabPage2.Controls.Add(this.button8);
@@ -251,6 +252,15 @@
             this.tabPage2.Text = "Настройки";
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(335, 62);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(131, 23);
+            this.button5.TabIndex = 19;
+            this.button5.Text = "Сгенерировать ключ";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // checkBox5
             // 
@@ -284,12 +294,13 @@
             this.label8.TabIndex = 16;
             this.label8.Text = "Ссылка ВК";
             // 
-            // textBox4
+            // textBoxMasterKey
             // 
-            this.textBox4.Location = new System.Drawing.Point(22, 86);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(444, 20);
-            this.textBox4.TabIndex = 15;
+            this.textBoxMasterKey.Location = new System.Drawing.Point(22, 86);
+            this.textBoxMasterKey.Name = "textBoxMasterKey";
+            this.textBoxMasterKey.Size = new System.Drawing.Size(444, 20);
+            this.textBoxMasterKey.TabIndex = 15;
+            this.textBoxMasterKey.TextChanged += new System.EventHandler(this.textBoxMasterKey_TextChanged);
             // 
             // label7
             // 
@@ -400,15 +411,6 @@
             this.tabPage3.Text = "Сведения";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(335, 62);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(131, 23);
-            this.button5.TabIndex = 19;
-            this.button5.Text = "Сгенерировать ключ";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
             // Main_Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -458,7 +460,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxMasterKey;
         private System.Windows.Forms.CheckBox checkBox5;
         private System.Windows.Forms.Button button5;
     }

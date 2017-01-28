@@ -101,5 +101,18 @@ namespace CryOnCoding
         {
 
         }
+
+        // Клик по кнопке отправить
+        private void buttonSend_Click(object sender, EventArgs e)
+        {
+            string sendmessage = Utils.MessageGen(textBoxInput.Text);
+            textBoxChat.AppendText ("\n[Вы] " + textBoxInput.Text + "   \\ " + sendmessage + Environment.NewLine);
+        }
+
+        private void textBoxMasterKey_TextChanged(object sender, EventArgs e)
+        {
+            COClib.COC.SetKey(textBoxMasterKey.Text);
+            Console.WriteLine(Convert.ToBase64String(COClib.COC.masterKey));
+        }
     }
 }
