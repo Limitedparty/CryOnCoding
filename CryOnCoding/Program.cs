@@ -11,7 +11,8 @@ namespace CryOnCoding
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
-
+    
+        // Ссылка на главное окно
         public static Main_Window mainWindow;
         
         [STAThread]
