@@ -438,7 +438,6 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button buttonUpdate;
-        private System.Windows.Forms.TextBox textBoxInput;
         private System.Windows.Forms.Button buttonSend;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label5;
@@ -461,9 +460,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBoxMasterKey;
         private System.Windows.Forms.CheckBox checkBox5;
         private System.Windows.Forms.Button buttonGenKey;
         public System.Windows.Forms.TextBox textBoxChat;
+        public System.Windows.Forms.TextBox textBoxInput;
+        public System.Windows.Forms.TextBox textBoxMasterKey;
     }
 }

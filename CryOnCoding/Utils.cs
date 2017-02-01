@@ -9,15 +9,16 @@ namespace CryOnCoding
 {
     class Utils
     {
-        public static string MessageGen (string message)
+        public static bool SendMessage (string message)
         {
             message = "[COC]" + COClib.COC.Encrypt(message);
-            //Program.mainWindow.textBoxChat.AppendText("test");
-            return message;
+            return true; // TO DO
         }
-        public static void SendMessage (string message)
-        {
 
+        public static void PrintMyMessage(string message)
+        {
+            message = "Вы: " + message;
+            Program.mainWindow.textBoxChat.AppendText(message + Environment.NewLine);
         }
     }
 }
