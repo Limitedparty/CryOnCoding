@@ -22,5 +22,10 @@ namespace CryOnCoding
         {
 
         }
+
+        public static void Update()
+        {
+
+        }
     }
 }

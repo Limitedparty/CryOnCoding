@@ -126,5 +126,11 @@ namespace CryOnCoding
             //textBoxMasterKey.Text = Encoding.ASCII.GetString(COClib.COC.masterKey);
             Interface.GenerateKey();
         }
+
+        // Клик по кнопке обновление сообщений
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+            Interface.Update();
+        }
     }
 }

@@ -40,7 +40,7 @@
             this.textBoxChat = new System.Windows.Forms.TextBox();
             this.textBoxInput = new System.Windows.Forms.TextBox();
             this.buttonSend = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonUpdate = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.buttonGenKey = new System.Windows.Forms.Button();
@@ -89,7 +89,7 @@
             this.tabPage1.Controls.Add(this.textBoxChat);
             this.tabPage1.Controls.Add(this.textBoxInput);
             this.tabPage1.Controls.Add(this.buttonSend);
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.buttonUpdate);
             this.tabPage1.Controls.Add(this.listBox1);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -203,16 +203,17 @@
             this.buttonSend.UseVisualStyleBackColor = false;
             this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
-            // button1
+            // buttonUpdate
             // 
-            this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(295, 221);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(84, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Обновление";
-            this.button1.UseVisualStyleBackColor = false;
+            this.buttonUpdate.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonUpdate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonUpdate.Location = new System.Drawing.Point(295, 221);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(84, 23);
+            this.buttonUpdate.TabIndex = 1;
+            this.buttonUpdate.Text = "Обновление";
+            this.buttonUpdate.UseVisualStyleBackColor = false;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // listBox1
             // 
@@ -436,7 +437,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.TextBox textBoxInput;
         private System.Windows.Forms.Button buttonSend;
         private System.Windows.Forms.CheckBox checkBox1;
