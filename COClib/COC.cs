@@ -17,7 +17,7 @@ namespace COClib
         public static void GenKey()
         {
             // TODO: Генерация ключа
-
+            masterKey = Encoding.ASCII.GetBytes("test00101001");
         }
 
         // Установка ключа

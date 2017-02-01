@@ -12,6 +12,7 @@ namespace CryOnCoding
         public static string MessageGen (string message)
         {
             message = "[COC]" + COClib.COC.Encrypt(message);
+            //Program.mainWindow.textBoxChat.AppendText("test");
             return message;
         }
         public static void SendMessage (string message)

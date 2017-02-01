@@ -106,13 +106,22 @@ namespace CryOnCoding
         private void buttonSend_Click(object sender, EventArgs e)
         {
             string sendmessage = Utils.MessageGen(textBoxInput.Text);
-            textBoxChat.AppendText ("\n[Вы] " + textBoxInput.Text + "   \\ " + sendmessage + Environment.NewLine);
+            textBoxChat.AppendText("S# ");
+            textBoxChat.AppendText ("[Вы] " + textBoxInput.Text + Environment.NewLine + sendmessage + Environment.NewLine);
         }
 
+        // Обновление поля с ключом
         private void textBoxMasterKey_TextChanged(object sender, EventArgs e)
         {
             COClib.COC.SetKey(textBoxMasterKey.Text);
             Console.WriteLine(Convert.ToBase64String(COClib.COC.masterKey));
+        }
+
+        // Клик по кнопке генерации ключа
+        private void buttonGenKey_Click(object sender, EventArgs e)
+        {
+            COClib.COC.GenKey();
+            textBoxMasterKey.Text = Encoding.ASCII.GetString(COClib.COC.masterKey);
         }
     }
 }

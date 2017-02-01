@@ -43,7 +43,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button5 = new System.Windows.Forms.Button();
+            this.buttonGenKey = new System.Windows.Forms.Button();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -228,7 +228,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.button5);
+            this.tabPage2.Controls.Add(this.buttonGenKey);
             this.tabPage2.Controls.Add(this.checkBox5);
             this.tabPage2.Controls.Add(this.checkBox4);
             this.tabPage2.Controls.Add(this.label8);
@@ -253,14 +253,15 @@
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
-            // button5
+            // buttonGenKey
             // 
-            this.button5.Location = new System.Drawing.Point(335, 62);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(131, 23);
-            this.button5.TabIndex = 19;
-            this.button5.Text = "Сгенерировать ключ";
-            this.button5.UseVisualStyleBackColor = true;
+            this.buttonGenKey.Location = new System.Drawing.Point(335, 62);
+            this.buttonGenKey.Name = "buttonGenKey";
+            this.buttonGenKey.Size = new System.Drawing.Size(131, 23);
+            this.buttonGenKey.TabIndex = 19;
+            this.buttonGenKey.Text = "Сгенерировать ключ";
+            this.buttonGenKey.UseVisualStyleBackColor = true;
+            this.buttonGenKey.Click += new System.EventHandler(this.buttonGenKey_Click);
             // 
             // checkBox5
             // 
@@ -442,7 +443,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxChat;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -462,6 +462,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxMasterKey;
         private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button buttonGenKey;
+        public System.Windows.Forms.TextBox textBoxChat;
     }
 }

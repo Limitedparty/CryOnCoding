@@ -11,12 +11,15 @@ namespace CryOnCoding
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
+
+        public static Main_Window mainWindow;
+        
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main_Window());
+            Application.Run(mainWindow = new Main_Window());
         }
     }
 }
