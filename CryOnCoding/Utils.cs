@@ -9,16 +9,37 @@ namespace CryOnCoding
 {
     class Utils
     {
-        public static bool SendMessage (string message)
+        public static bool EncryptMessage (string message)
         {
-            message = "[COC]" + COClib.COC.Encrypt(message);
-            return true; // TO DO
+            try
+            {
+                message = COClib.COC.Encrypt(message);
+                PrintMessage(message);
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false; // TO DO
+            }
         }
 
-        public static void PrintMyMessage(string message)
+        public static bool DecryptMessage(string message)
         {
-            message = "Вы: " + message;
-            Program.mainWindow.textBoxChat.AppendText(message + Environment.NewLine);
+            try
+            {
+                message = COClib.COC.Decrypt(message);
+                PrintMessage(message);
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false; // TO DO
+            }
+        }
+
+        public static void PrintMessage(string message)
+        {
+            Program.mWindow.textBoxEncrypted.Text = message;
         }
     }
 }

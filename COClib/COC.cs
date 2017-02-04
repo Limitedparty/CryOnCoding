@@ -43,7 +43,7 @@ namespace COClib
                 decrypted = CryptMaster.Decrypt(message, Convert.ToBase64String(masterKey));
             } catch (Exception e)
             {
-                return "Encryption error";
+                return "Decryption error";
             }
             return decrypted;
         }

@@ -10,26 +10,24 @@ namespace CryOnCoding
     {
         public static void Send()
         {
-            string usermessage = Program.mainWindow.textBoxInput.Text;
-            Utils.SendMessage(usermessage);
-            Utils.PrintMyMessage(usermessage);
+            Utils.EncryptMessage(Program.mWindow.textBoxMessage.Text);
+        }
+
+        public static void Decrypt()
+        {
+            Utils.DecryptMessage(Program.mWindow.textBoxMessage.Text);
         }
 
         public static void MasterKeyUpdate()
         {
-            COClib.COC.SetKey(Program.mainWindow.textBoxMasterKey.Text);
+            COClib.COC.SetKey(Program.mWindow.textBoxKey.Text);
             Console.WriteLine(Convert.ToBase64String(COClib.COC.masterKey));
         }
 
         public static void GenerateKey()
         {
             COClib.COC.GenKey();
-            Program.mainWindow.textBoxMasterKey.Text = Encoding.ASCII.GetString(COClib.COC.masterKey);
-        }
-
-        public static void Update()
-        {
-
+            Program.mWindow.textBoxKey.Text = Encoding.ASCII.GetString(COClib.COC.masterKey);
         }
     }
 }

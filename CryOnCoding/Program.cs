@@ -14,14 +14,15 @@ namespace CryOnCoding
         /// </summary>
     
         // Ссылка на главное окно
-        public static Main_Window mainWindow;
-        
+        public static MWindow mWindow;
+        public static bool autoEncrypt;
+
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(mainWindow = new Main_Window());
+            Application.Run(mWindow = new MWindow());
         }
     }
 }
